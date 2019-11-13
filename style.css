@@ -1,0 +1,25 @@
+body {
+    background-image: url("img/city_backdrop.jpg") ;
+    width: 100%;
+}
+
+.content {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(238, 238, 238);
+    padding: 20px;
+    width: 100%;
+}
+
+.header {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    text-shadow: 2px 2px 5px blue;
+}
+
+.intro {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+
+}
+
