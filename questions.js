@@ -1,5 +1,5 @@
 //This page I separated for just the questions to present cleaner code
-var questions = [
+/*var questions = [
     {
       title: "What neighborhood is Wrigley Field in?",
       choices: ["Lakeview", "Pilsen", "Logan Square", "Wrigleyville"],
@@ -26,5 +26,5 @@ var questions = [
         answer: "Lake Michagin"
       },
           
-  ];
+  ];*/
   

@@ -8,8 +8,6 @@
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <script src="questions.js"></script>
     
 </head>
 
@@ -22,22 +20,53 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-sm-12 mx-auto">
+            
             <div class="content">
                 <h1 class="header">Chicago Fun Fact Quiz</h1>
                 <br/>
-                <p class= "intro">
+                <p id= "intro">
                     Come test your knowledge of Chicago, in this short timed quiz!
                     <br/>
                     Timing counts! 
                     <br/>
-                    Go as quick as you can and all questions correctly to get the highest score.
+                    Go as quick as you can, while answering correctly, to get the highest score.
                 </p>
                 <br/>
-                <button onclick ="startQuiz()">Start Quiz</button>
+
+                <div id ="question-container" class="hide">
+                    <div class ="row">
+                        <div class="col-lg-8 col-sm-12 mx-auto">
+                            <div id ="question">Question</div>
+                            </div>
+                    </div>
+
+                <div id ="answer-buttons" class id="btn-grid"></div>
+                    <div class ="row">
+                        <div class ="col-lg-8 col-md-8 col-sm-12 mx-auto">
+                            <div id ="answer-buttons" class id="btn-grid"></div>
+                            <button class ="btn">Answer 1</button>
+                            <button class ="btn">Answer 2</button>
+                            <button class ="btn">Answer 3</button>
+                            <button class ="btn">Answer 4</button>  
+                        </div>
+                    </div>           
+                </div>
+                
+                <div class = "controls">
+                        <div class ="row">
+                                <div class ="col-lg-3 col-sm-4 mx-auto">
+                                    <button id = "start-btn" class = "start-btn btn" >Start Quiz</button>
+                                    <button id = "next-btn" class = "next-btn btn hide" >Next</button>
+                                </div>
+                        </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+    
+    <script defer src="script.js"></script>
+    <script src="questions.js"></script>
 
 </body>
 </html>

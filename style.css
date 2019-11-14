@@ -1,14 +1,14 @@
 body {
     background-image: url("img/city_backdrop.jpg") ;
-    width: 100%;
 }
 
 .content {
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(206, 197, 197);
     padding: 20px;
     width: 100%;
+    box-shadow: 0 0 10px 2px;
 }
 
 .header {
@@ -17,9 +17,34 @@ body {
     text-shadow: 2px 2px 5px blue;
 }
 
-.intro {
+#intro {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
-
 }
 
+#questionContainer {
+    width: 100%;
+}
+
+#question {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+.btn {
+    border: 2px outset rgb(235, 223, 65);
+    background-color: rgb(243, 245, 130);
+    font-weight: bold;
+}
+
+#startButton, #nextButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    margin-left: 50%;
+}
+
+ .hide {
+    display: none;
+} 
