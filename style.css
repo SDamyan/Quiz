@@ -27,10 +27,11 @@ body {
 }
 
 #question {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: center;
+    margin-bottom: 10px;
 }
 
 .btn {
@@ -39,12 +40,12 @@ body {
     font-weight: bold;
 }
 
-#startButton, #nextButton {
+#start-btn, #next-btn, #high-score-btn {
     margin-top: 10px;
     padding: 10px 20px;
-    margin-left: 50%;
+    margin-left: 43%;
 }
 
- .hide {
+.hide {
     display: none;
 } 
