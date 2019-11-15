@@ -37,7 +37,7 @@ body {
     margin: 5px;
 }
 
-#start-btn, #next-btn, #high-score-btn {
+#start-btn, #next-btn, #high-score-btn, #enter-score-btn{
     margin-top: 10px;
     padding: 10px 20px;
     background-color: rgb(52, 135, 187);
