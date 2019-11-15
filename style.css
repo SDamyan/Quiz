@@ -1,3 +1,8 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
 body {
     background-image: url("img/city_backdrop.jpg") ;
 }
@@ -8,18 +13,12 @@ body {
     background-color: rgb(206, 197, 197);
     padding: 20px;
     width: 100%;
+    border-radius: 5px;
     box-shadow: 0 0 10px 2px;
 }
 
 .header {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
     text-shadow: 2px 2px 5px blue;
-}
-
-#intro {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
 }
 
 #questionContainer {
@@ -29,22 +28,38 @@ body {
 #question {
     font-size: 25px;
     font-weight: bold;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
     margin-bottom: 10px;
 }
 
 .btn {
     border: 2px outset rgb(235, 223, 65);
     background-color: rgb(243, 245, 130);
-    font-weight: bold;
+    margin: 5px;
 }
 
 #start-btn, #next-btn, #high-score-btn {
     margin-top: 10px;
     padding: 10px 20px;
-    margin-left: 43%;
+    background-color: rgb(52, 135, 187);
+    border: 2px outset rgb(79, 79, 223);
+    font-weight: bold;
+    color: whitesmoke;
+    outline: none;
+
 }
+
+.btn:hover {
+    border-color: black;
+}
+
+.btn.correct {
+    background-color: lightgreen;
+}
+
+.btn.wrong {
+    background-color: lightsalmon;
+}
+
 
 .hide {
     display: none;

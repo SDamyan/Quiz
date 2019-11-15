@@ -5,6 +5,7 @@ const openingText = document.getElementById ("intro");
 const questionContainerElement = document.getElementById ("question-container");
 const questionElement = document.getElementById ("question");
 const answerButtonsElement = document.getElementById ("answer-buttons");
+let highScore = 0;
 
 let shuffledQuestions;
 let currentQuestionIndex;
@@ -45,22 +46,28 @@ function showQuestion(question) {
 }
 
 function resetState() {
+    clearStatusClass(document.body)
     nextButton.classList.add("hide")
     while (answerButtonsElement.firstChild) {
-        //problem here removing the first child
+        //removed place holder answer buttons
         answerButtonsElement.removeChild(answerButtonsElement.firstChild)
     }
 }
     
 function selectAnswer (e){
     const selectedButton = e.target
-    const correct = selectedButton.dataset.correct
+    const correct = selectedButton.dataset.correct;
+
+    questions[currentQuestionIndex].gotcorrect = Boolean(correct);
+    console.log(questions[currentQuestionIndex])
+
     setStatusClass(document.body, correct)
     //another way to change to an array
     Array.from(answerButtonsElement.children).forEach(button => {
         //set the data set on whether or not that was a correct answer
         setStatusClass(button, button.dataset.correct)
     })
+    //corrected, wrong formatting 
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide")
     } else {
@@ -100,7 +107,9 @@ const questions = [
           {text : "Logan Square", correct: false},
           {text : "Wrigleyville", correct: true}
         ],
-
+        gotcorrect: false,
+    },
+    {
         question: "What does a Chicogan NOT put on a hot dog?",
         answers: [
             {text : "Ketchup", correct: true},
@@ -108,7 +117,9 @@ const questions = [
             {text : "Mustard", correct: false},
             {text : "Onion", correct: false}
           ],
-
+          gotcorrect: false,
+    },
+    {
         question: "Which of these movies is NOT based in Chicago?",
         answers: [
               {text : "Home Alone", correct: false},
@@ -116,7 +127,9 @@ const questions = [
               {text : "Backdraft", correct: false},
               {text : "Crash", correct: true}
             ],
-            
+            gotcorrect: false,
+    },
+    {       
         question: "What holiday does the city dye the river?",
         answers: [
                 {text : "Christmas", correct: false},
@@ -124,13 +137,16 @@ const questions = [
                 {text : "St. Patrick's Day", correct: true},
                 {text : "Forth of July", correct: false}
               ],
-            
+              gotcorrect: false,
+    },
+    {       
         question: "What lake boarders Chicago?",
         answers: [
                   {text : "Lake Superior", correct: false},
                   {text : "Lake Michagin", correct: true},
                   {text : "Lake Ontario", correct: false},
                   {text : "Lake Huron", correct: false}
-                ]
+                ],
+                gotcorrect: false
     }
 ]
