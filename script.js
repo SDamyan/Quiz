@@ -1,4 +1,5 @@
 //Created const variables to link my html
+
 const startButton = document.getElementById ("start-btn");
 const nextButton = document.getElementById ("next-btn");
 const highScoresButton = document.getElementById ("high-score-btn");
@@ -9,13 +10,18 @@ const questionContainerElement = document.getElementById ("question-container");
 const questionElement = document.getElementById ("question");
 const answerButtonsElement = document.getElementById ("answer-buttons");
 const initialsEnter = document.getElementById ("high-score-page")
-
+const initialsInputVar = document.getElementById ("initialsInput")
+const displayNSVar = document.getElementById ("displayNameScore")
 //Created empty let variables, to allow for changes throughout the program
-let highScore = 0;
+
+let highScore = 50;
 let shuffledQuestions;
 let currentQuestionIndex;
 
-//Adding in event listeners to trigger the start of the game, next question, or highscore page
+
+
+//Adding in event listeners to trigger functions: start of the game, next question, highscore page, & entering initials
+
 startButton.addEventListener ("click", startGame)
 nextButton.addEventListener("click", () => {
     currentQuestionIndex++
@@ -25,7 +31,9 @@ highScoresButton.addEventListener ("click", highScorePage)
 enterScoresButton.addEventListener ("click", enterScoreDisplay)
 
 
+
 //Function for starting the game. Hiding initial start screen and removing hide from question screen 
+
 function startGame () {
     startButton.classList.add("hide")
     openingText.classList.add("hide")
@@ -37,13 +45,18 @@ function startGame () {
 }
 
 
+
 //Function to reset the screen and to trigger to show the next question.
+
 function setNextQuestion () {
     resetState()
     showQuestion (shuffledQuestions[currentQuestionIndex])
 }
 
+
+
 //Function to set up the page to open the next questions, upon clicking the next button
+
 function showQuestion(question) {
     questionElement.innerText = question.question
     question.answers.forEach(answer => {
@@ -58,7 +71,10 @@ function showQuestion(question) {
     })
 }
 
+
+
 //Function to reset the page
+
 function resetState() {
     clearStatusClass(document.body)
     nextButton.classList.add("hide")
@@ -68,7 +84,10 @@ function resetState() {
     }
 }
 
+
+
 //Function for when the user selects an answer
+
 function selectAnswer (e){
     const selectedButton = e.target
     const correct = selectedButton.dataset.correct;
@@ -86,13 +105,29 @@ function selectAnswer (e){
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove("hide")
     } else {
-        // add in event listener so on click it will show highscores
+        // show highscore's page
        highScoresButton.classList.remove("hide")
-
     }
-}
-    
+
+    //adding correct responses to keep track of score
+    if (!correct) {
+        highScore -= 10;
+    }
+
+    //adding to local storage
+    localStorage.setItem('storeObj', (highScore));
+
+   
+
+
+
+    }//end bracket for function
+
+  
+
+
 //Function to denote if the user has selected the correct of wrong answer
+
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
@@ -102,32 +137,40 @@ function setStatusClass(element, correct) {
     }
 }
 
+
+
 //Function to remove style formatting for correct or wrong
+
 function clearStatusClass(element) {
     element.classList.remove("correct")
     element.classList.remove("wrong")
 }
 
+
+
 //Function to open the high score page
+
 function highScorePage () {
     questionContainerElement.classList.add("hide")
     highScoresButton.classList.add("hide")
     enterScoresButton.classList.remove("hide")
     initialsEnter.classList.remove("hide")
 
-
-//NEED TO ADD: a way to show highscores on the screen with initials, stored in localstorage
-//and reset button to bring the user back to the beginning of the quiz
 }
 
-
+ //Function to get data from local storage   
+ 
 function enterScoreDisplay () {
-
+var getObject = (localStorage.getItem('storeObj'));
+    var value =initialsInputVar.value;
+    displayNSVar.innerText = (value + " " + getObject)
 }
+
 
 
 //Added questions in a slightly different format then the one suggested, 
 //Here the value of correct is already equalled to true or false for easier data tracking
+
 const questions = [
     {
       question: "What neighborhood is Wrigley Field in?",

@@ -50,6 +50,7 @@ body {
 
 .btn:hover {
     border-color: black;
+    cursor: pointer;
 }
 
 .btn.correct {
@@ -60,6 +61,9 @@ body {
     background-color: lightsalmon;
 }
 
+#displayNameScore {
+    margin-top: 10px;
+}
 
 .hide {
     display: none;
