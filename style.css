@@ -37,7 +37,7 @@ body {
     margin: 5px;
 }
 
-#start-btn, #next-btn, #high-score-btn, #enter-score-btn{
+#start-btn, #next-btn, #high-score-btn, #enter-score-btn {
     margin-top: 10px;
     padding: 10px 20px;
     background-color: rgb(52, 135, 187);
@@ -46,6 +46,10 @@ body {
     color: whitesmoke;
     outline: none;
 
+}
+
+#time01 {
+    color: white;
 }
 
 .btn:hover {
@@ -63,6 +67,7 @@ body {
 
 #displayNameScore {
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .hide {

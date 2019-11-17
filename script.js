@@ -9,11 +9,13 @@ const openingText = document.getElementById ("intro");
 const questionContainerElement = document.getElementById ("question-container");
 const questionElement = document.getElementById ("question");
 const answerButtonsElement = document.getElementById ("answer-buttons");
-const initialsEnter = document.getElementById ("high-score-page")
-const initialsInputVar = document.getElementById ("initialsInput")
-const displayNSVar = document.getElementById ("displayNameScore")
-//Created empty let variables, to allow for changes throughout the program
+const initialsEnter = document.getElementById ("high-score-page");
+const initialsInputVar = document.getElementById ("initialsInput");
+const displayNSVar = document.getElementById ("displayNameScore");
 
+
+//Created empty let variables, to allow for changes throughout the program
+var timeVar;
 let highScore = 50;
 let shuffledQuestions;
 let currentQuestionIndex;
@@ -33,16 +35,38 @@ enterScoresButton.addEventListener ("click", enterScoreDisplay)
 
 
 //Function for starting the game. Hiding initial start screen and removing hide from question screen 
-
-function startGame () {
+  
+  function startGame () {
+    timeVar = 50;
     startButton.classList.add("hide")
     openingText.classList.add("hide")
+    
+    /* enterScoresButton.classList.add("hide")
+    initialsEnter.classList.add("hide") */
+
 //added in a shuffle sort, so that each time the user takes the quiz, the questions will appear in a random order
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0
     questionContainerElement.classList.remove("hide")
     setNextQuestion ()
 }
+
+
+
+//Function to run the timer
+function timer () {
+        timeVar = timeVar - 1;
+        if (timeVar < 50) {
+            time01.innerHTML = timeVar;
+        }
+
+        if (timeVar < 1) {
+            window.clearInterval(update);
+            highScorePage ()
+        }
+}
+update = setInterval("timer()", 1000);
+
 
 
 
@@ -117,11 +141,7 @@ function selectAnswer (e){
     //adding to local storage
     localStorage.setItem('storeObj', (highScore));
 
-   
-
-
-
-    }//end bracket for function
+}
 
   
 
@@ -154,18 +174,19 @@ function highScorePage () {
     questionContainerElement.classList.add("hide")
     highScoresButton.classList.add("hide")
     enterScoresButton.classList.remove("hide")
-    initialsEnter.classList.remove("hide")
-
+    initialsEnter.classList.remove("hide") 
 }
 
  //Function to get data from local storage   
  
 function enterScoreDisplay () {
-var getObject = (localStorage.getItem('storeObj'));
-    var value =initialsInputVar.value;
+    var getObject = (localStorage.getItem('storeObj'));
+    var value = initialsInputVar.value;
     displayNSVar.innerText = (value + " " + getObject)
+    /* startButton.innerText = "Restart"
+    startButton.classList.remove("hide")
+ */
 }
-
 
 
 //Added questions in a slightly different format then the one suggested, 
@@ -183,7 +204,7 @@ const questions = [
         gotcorrect: false,
     },
     {
-        question: "What does a Chicogan NOT put on a hot dog?",
+        question: "What does a Chicagoan NOT put on a hot dog?",
         answers: [
             {text : "Ketchup", correct: true},
             {text : "Pickles", correct: false},
@@ -216,7 +237,7 @@ const questions = [
         question: "What lake boarders Chicago?",
         answers: [
                   {text : "Lake Superior", correct: false},
-                  {text : "Lake Michagin", correct: true},
+                  {text : "Lake Michigan", correct: true},
                   {text : "Lake Ontario", correct: false},
                   {text : "Lake Huron", correct: false}
                 ],
