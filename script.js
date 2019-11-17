@@ -175,6 +175,8 @@ function highScorePage () {
     highScoresButton.classList.add("hide")
     enterScoresButton.classList.remove("hide")
     initialsEnter.classList.remove("hide") 
+    window.clearInterval(update);
+    timeVar = "-";
 }
 
  //Function to get data from local storage   
